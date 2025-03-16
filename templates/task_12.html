@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> Task-12: Repeat Queries </title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            background-color: #f0f00c; 
+            color: #333;
+            margin: 0; 
+            padding-top: 20px; 
+        }
+        table { 
+            width: 100%; 
+            border-collapse: collapse;
+        }
+        th, td { 
+            text-align: left; 
+            border: 2px solid black;
+            color: darkgreen;
+        }
+        .form-group { 
+            margin: 20px; 
+        }
+        a { 
+            color: #06c; 
+            text-decoration: none; 
+            margin-top: 20px; 
+            display: inline-block; 
+        }
+        h2 {
+            background-color: whitesmoke; 
+            color: red;              
+            text-align: center;       
+            padding: 20px;            
+            margin: 20px auto;        
+            border: 4px solid black; 
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <h2> Welcome to CSE_6332 Quiz-03 <br> <br>
+            Kintur Ketan Shah (1002178072)
+        </h2>
+    </center>
+
+    {% if error %}
+        <p> {{ error }} </p>
+    {% endif %}
+
+    <a href="/">Main Page</a>
+    <div class="form-group">
+        <h2> Repeat Queries Task </h2>
+        <form action="/task_12" method="POST">
+            Start Time: <input type="number" name="start_time" required><br> <br>
+            End Time: <input type="number" name="end_time" required><br> <br>
+            Net Value: <input type="text" name="net_value" required><br> <br>
+            Count: <input type="number" name="count" required min="1"><br> <br>
+            Number of Repetitions: <input type="number" name="repetitions" required min="1"><br> <br>
+            <input type="submit" value="Search" style="color: darkgreen; font-size: 18px; 
+                        padding: 10px 18px; border: 2px solid black; background-color: white;">
+        </form>
+    </div>
+
+    {% if data == 1 %}
+    <p> Total Time Taken to retrieve the information: {{ total_time }} seconds. </p>
+    <div>
+        {% for i in range(repetitions) %}
+        <h3>Query {{ i+1 }} Results (Time Taken: {{ individual_times[i] }} seconds):</h3>
+        <table>
+            <strong>
+                <caption style="color: darkblue; font-size: large;">
+                    Events Records based on Time, Net Value, and Count (Query {{ i+1 }})
+                </caption>
+            </strong>
+            <thead>
+                <tr>
+                    <th style="color: darkgreen; border: 2px solid black;">Time</th>
+                    <th style="color: darkgreen; border: 2px solid black;">Latitude</th>
+                    <th style="color: darkgreen; border: 2px solid black;">Longitude</th>
+                    <th style="color: darkgreen; border: 2px solid black;">Depth</th>
+                    <th style="color: darkgreen; border: 2px solid black;">Magnitude</th>
+                    <th style="color: darkgreen; border: 2px solid black;">Net</th>
+                    <th style="color: darkgreen; border: 2px solid black;">ID</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for val in results_list[i] %}
+                <tr>
+                    <td style="color: darkgreen; border: 2px solid black;"> {{ val[0] }} </td>
+                    <td style="color: darkgreen; border: 2px solid black;"> {{ val[1] }} </td>
+                    <td style="color: darkgreen; border: 2px solid black;"> {{ val[2] }} </td>
+                    <td style="color: darkgreen; border: 2px solid black;"> {{ val[3] }} </td>
+                    <td style="color: darkgreen; border: 2px solid black;"> {{ val[4] }} </td>
+                    <td style="color: darkgreen; border: 2px solid black;"> {{ val[5] }} </td>
+                    <td style="color: darkgreen; border: 2px solid black;"> {{ val[6] }} </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endfor %}
+    </div>
+    {% endif %}
+</body>
+</html>
