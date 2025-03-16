@@ -2,7 +2,9 @@
 
 
 ## Overview
-DBCacheOptimizer is a performance-driven system designed to optimize database queries by leveraging SQL and Redis caching. It enhances query efficiency by reducing response time and minimizing direct database hits, making it ideal for handling large datasets.
+DBCacheOptimizer is a performance-driven system designed to optimize database queries by leveraging SQL and Redis caching. It enhances query efficiency by reducing response time and minimizing direct database hits, making it ideal for handling large datasets. <br>
+
+DBCacheOptimizer is hosted on **Microsoft Azure**, enabling cloud-based query optimization and caching for enhanced performance.<br>
 
 ## Features
 - **SQL Query Execution:** Retrieve data based on time range and other conditions.
@@ -62,11 +64,13 @@ DBCacheOptimizer/
 │   ├── task_12.html
 │   ├── task_12_redis.html
 │── static/
+│   ├── data1.csv
 │── app.py
 │── requirements.txt
 │── query_times.csv
 │── README.md
 ```
+
 
 ## Future Enhancements
 - **Visualization Dashboard:** Add real-time charts to track query performance.
