@@ -16,6 +16,7 @@ DBCacheOptimizer is hosted on **MS Azure**, enabling cloud-based query optimizat
 ## Technologies Used
 - **Backend:** Flask (Python)
 - **Database:** Azure SQL Server (via PyODBC)
+- **Database management tool:** Azure Data Studio
 - **Caching:** Redis
 - **Frontend:** HTML, CSS
 - **Logging:** Query execution times stored in `query_times.csv`
