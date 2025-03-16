@@ -256,3 +256,6 @@ def task_12_redis():
         return render_template('task_12_redis.html', results_list=results_list, individual_times=individual_times, total_time=total_time, data=1, repetitions=repetitions)
 
     return render_template('task_12_redis.html')
+
+if __name__ == '__main__':
+    app.run(debug=True)
