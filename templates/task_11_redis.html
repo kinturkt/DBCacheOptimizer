@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Task-11: Search by Time and Net Value using Redis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f00c;
+            color: #333;
+            margin: 0;
+            padding-top: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            text-align: left;
+            border: 2px solid black;
+            color: darkgreen;
+        }
+        .form-group {
+            margin: 20px;
+        }
+        a {
+            color: #06c;
+            text-decoration: none;
+            margin-top: 20px;
+            display: inline-block;
+        }
+        h2 {
+            background-color: whitesmoke;
+            color: red;
+            text-align: center;
+            padding: 20px;
+            margin: 20px auto;
+            border: 4px solid black;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <h2>Welcome to CSE_6332 Quiz-03<br><br>
+            Kintur Ketan Shah (1002178072)
+        </h2>
+    </center>
+
+    {% if error %}
+        <p>{{ error }}</p>
+    {% endif %}
+
+    <a href="/">Main Page</a>
+    <div class="form-group">
+        <h2>Search by Time and Net Value using Redis</h2>
+        <form action="/task_11_redis" method="POST">
+            Start Time: <input type="number" name="start_time" required><br><br>
+            Net Value: <input type="text" name="net_value" required><br><br>
+            Count: <input type="number" name="count" required min="1"><br><br>
+            <input type="submit" value="Search" style="color: darkgreen; font-size: 18px; padding: 10px 18px; border: 2px solid black; background-color: white;">
+        </form>
+    </div>
+
+    {% if data == 1 %}
+    <p>Time Taken to retrieve that information: {{ tt_for_query }} seconds.</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Time</th>
+                <th>Latitude</th>
+                <th>Longitude</th>
+                <th>Depth</th>
+                <th>Magnitude</th>
+                <th>Net</th>
+                <th>ID</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for time, latitude, longitude, depth, mag, net, id in results %}
+            <tr>
+                <td>{{ time }}</td>
+                <td>{{ latitude }}</td>
+                <td>{{ longitude }}</td>
+                <td>{{ depth }}</td>
+                <td>{{ mag }}</td>
+                <td>{{ net }}</td>
+                <td>{{ id }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+</body>
+</html>
